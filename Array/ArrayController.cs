@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Array
+namespace HomeworkArray
 {
     static class ArrayController
     {
@@ -47,5 +47,81 @@ namespace Array
             }
             return min;
         }
+
+        public static int GetMax(int[] array)
+        {
+            int max = array[0];
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] > max)
+                {
+                    max = array[i];
+                }
+            }
+            return max;
+        }
+
+        public static int GetMinIndex(int[] array)
+        {
+            int minindex = 0;
+            int min = array[0];
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] < min)
+                {
+                    min = array[i];
+                    minindex = i;
+                }
+            }
+            return minindex;
+        }
+        public static int SumOddIndex(int[] array)
+        {
+            int sum = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (i % 2 !=0)
+                {
+                    sum += array[i];
+                }
+            }
+            return sum;
+        }
+
+        public static int[] Revers(int[] array)
+        {
+            int[] newArray = new int[array.Length];
+            Array.Copy(array, newArray, array.Length);
+            int n = newArray.Length / 2;
+            for (int i = 0; i < n; i++)
+            {
+                int tmp = newArray[i];
+                newArray[i] = newArray[newArray.Length - (i + 1)];
+                newArray[newArray.Length - (i + 1)] = tmp;
+            }
+            return newArray;
+        }
+
+        public static int[] SortBubble(int[] array)
+        {
+            int[] newArray = new int[array.Length];
+            Array.Copy(array, newArray, array.Length);
+            for (int i = 0; i < newArray.Length; i++)
+            {
+                for (int j = 0; j < newArray.Length - (i + 1); j++)
+                {
+                    if (newArray[j] > newArray[j + 1])
+                    {
+                        int tmp = newArray[j];
+                        newArray[j] = newArray[j + 1];
+                        newArray[j + 1] = tmp;
+                    }
+                    
+                }
+            }
+            return newArray;
+        }
+
     }
+
 }
